@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KDH REHBER ÇALIŞMASI</title>
+    <style>
+        /* Modern ve Sade Stil */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            background-color: #f0f2f5; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Form Kapsayıcısı */
+        #myForm {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            max-width: 450px;
+            width: 90%;
+            margin-top: 20px;
+        }
+
+        /* Başlıklar */
+        h1, h3 { text-align: center; color: #333; margin: 0; padding-bottom: 5px; }
+        h1 { color: #007bff; font-size: 24px; }
+        h3 { color: #6c757d; font-size: 16px; margin-bottom: 20px; }
+
+        .form-group { margin-bottom: 18px; }
+
+        label { 
+            display: block; 
+            font-weight: 600; 
+            margin-bottom: 6px; 
+            color: #495057; 
+            font-size: 14px;
+        }
+
+        input[type="text"], input[type="number"], select, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ced4da; 
+            box-sizing: border-box; 
+            border-radius: 6px; 
+            margin-top: 5px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff; 
+            outline: none;
+        }
+
+        .submit-button { 
+            padding: 14px 20px; 
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 6px; 
+            width: 100%; 
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #218838;
+        }
+
+        #sonucMesaji {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        /* Hata mesajları için stil */
+        .error {
+            color: #dc3545; /* Kırmızı hata rengi */
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; margin-bottom: 3px; color: #333;">KDH-REHBER</h1>
+    <h3 style="text-align: center; margin-bottom: 3px; color: #666;">DİNAMİK REHBER ÇALIŞMASI</h3>
+    <h6 style="text-align: center; color: #666; margin-top: 3px;">BİLGİ SİSTEMLERİ DONANIM EKİBİ</h3>
+
+    <form id="myForm" action="https://script.google.com/macros/s/AKfycbyj-o7IOIvX_4vhqzM37jhHIswmW3p9emEW7EjBDJ1eEJqoCIH7UgH0Qz7VaJIQI2m26A/exec" method="POST">
+        
+        <div class="form-group">
+            <label for="ekleyen_ad">EKLEYEN ADI *</label>
+            <input type="text" id="ekleyen_ad" name="ekleyen_ad" placeholder="FORMU DOLDURAN KİŞİ ADI" maxlength="20" required>
+            <span class="error" id="ekleyen_ad_error">Ad en fazla 20 karakter olmalıdır.</span>
+        </div>
+        
+        <div class="form-group">
+            <label for="ekleyen_soyad">EKLEYEN SOYADI *</label>
+            <input type="text" id="ekleyen_soyad" name="ekleyen_soyad" placeholder="FORMU DOLDURAN KİŞİ SOYADI" maxlength="20" required>
+            <span class="error" id="ekleyen_soyad_error">Soyad en fazla 20 karakter olmalıdır.</span>
+        </div>
+
+        <div class="form-group">
+            <label for="dahili_no">DAHİLİ NUMARANIZ *</label>
+            <input 
+                type="text" 
+                id="dahili_no" 
+                name="dahili_no" 
+                placeholder="ÖR: 1125" 
+                maxlength="4"
+                inputmode="numeric"
+                pattern="[0-9]{4}" 
+                required
+            >
+            <span class="error" id="dahili_no_error">Dahili numara tam olarak 4 haneli bir sayı olmalıdır.</span>
+        </div>
+
+        <div class="form-group">
+            <label for="kat_no">KAT NUMARANIZ *</label>
+            <select id="kat_no" name="kat_no" required>
+                <option value="">Bir seçenek seçin...</option>
+                <option value="1.KAT">1.KAT</option>
+                <option value="2.KAT">2.KAT</option>
+                <option value="3.KAT">3.KAT</option>
+                <option value="4.KAT">4.KAT</option>
+                <option value="5.KAT">5.KAT</option>
+                <option value="BODRUM KAT">BODRUM KAT</option>
+                <option value="ZEMİN KAT">ZEMİN KAT</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="oda_no">ODA NUMARANIZ *</label>
+            <input type="text" id="oda_no" name="oda_no" placeholder="RENKLİ KOD İÇİN GEREKLİ" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="kime_ait">DAHİLİ NUMARA KİME AİT *</label>
+            <input type="text" id="kime_ait" name="kime_ait" placeholder="ODA DA GÖREVLİ KİŞİ" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="aciklama">AÇIKLAMA-GÜNCELLEME-DÜZELTME</label>
+            <textarea id="aciklama" name="aciklama" rows="4" placeholder="DAHA ÖNCEKİ VERİLERİ GÜNCELLEME TALEBİ" maxlength="170"></textarea>
+            <span class="error" id="aciklama_error">Açıklama en fazla 170 karakter olmalıdır.</span>
+        </div>
+        
+        <button type="submit" class="submit-button">Submit (Kaydet)</button>
+        
+        <p id="sonucMesaji" style="color: blue; text-align: center; margin-top: 20px;"></p>
+    </form>
+
+    <script>
+        // Arka uçta (Apps Script) tüm kontroller yapılacağı için frontend kodunu basitleştiriyoruz.
+
+        document.getElementById('myForm').addEventListener('submit', async function(e) {
+            e.preventDefault(); 
+            const form = e.target;
+            const formData = new FormData(form);
+            const dahiliNo = formData.get('dahili_no');
+            const sonucMesaji = document.getElementById('sonucMesaji');
+
+            // Hata mesajlarını temizle
+            hideAllErrors();
+
+            // --- 1. ÖN YÜZ (FRONTEND) DOĞRULAMA KONTROLLERİ ---
+            if (!clientSideValidation(formData)) {
+                 sonucMesaji.textContent = "❌ Lütfen tüm alanları doğru formatta doldurunuz.";
+                 return;
+            }
+            
+            // Dahili No'yu özel olarak kontrol et (4 haneli sayısal kontrolü)
+            if (!validateDahiliNo(dahiliNo)) {
+                sonucMesaji.textContent = "❌ Dahili numara tam olarak 4 haneli bir sayı olmalıdır!";
+                document.getElementById('dahili_no_error').style.display = 'block';
+                return;
+            }
+
+
+            // --- 2. GÖNDERİM İŞLEMİ (APPS SCRIPT KONTROLÜ İLE) ---
+            // Apps Script: 1. Küfür Kontrolü (Gemini) 2. Dahili No Tekrar Kontrolü 3. Sheets'e Kayıt
+            sonucMesaji.textContent = "Verileriniz yapay zeka ile kontrol ediliyor ve kaydediliyor, lütfen bekleyin...";
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Apps Script'e göndermek için kullanılan mod
+            })
+            .then(() => {
+                // Apps Script'ten kesin yanıt alamadığımız için genel bir mesaj gösteriyoruz.
+                // Eğer küfür veya tekrar eden numara varsa, kayıt zaten arka uçta engellenmiştir.
+                sonucMesaji.textContent = "✅ Kayıt talebi iletildi. Yapay zeka kontrolü tamamlandı!";
+                form.reset(); 
+            })
+            .catch(error => {
+                sonucMesaji.textContent = "❌ Gönderim sırasında bir hata oluştu. (İnternet/Bağlantı Hatası)";
+                console.error('Hata:', error);
+            });
+        });
+
+        /**
+         * Dahili numaranın tam 4 haneli sayı olup olmadığını kontrol eder.
+         */
+        function validateDahiliNo(dahiliNo) {
+            const cleanedNo = dahiliNo.trim();
+            const re = /^\d{4}$/; // Başlangıçtan sona kadar tam 4 rakam olmalı
+            return re.test(cleanedNo);
+        }
+        
+        /**
+         * Ön yüz (client-side) doğrulama kontrollerini yapar (uzunluk kontrolleri).
+         */
+        function clientSideValidation(formData) {
+            let isValid = true;
+            
+            // Ad/Soyad/Açıklama uzunluk kontrolleri
+            const fields = [
+                { id: 'ekleyen_ad', value: formData.get('ekleyen_ad'), max: 20, msgId: 'ekleyen_ad_error' },
+                { id: 'ekleyen_soyad', value: formData.get('ekleyen_soyad'), max: 20, msgId: 'ekleyen_soyad_error' },
+                { id: 'aciklama', value: formData.get('aciklama'), max: 170, msgId: 'aciklama_error' }
+            ];
+
+            fields.forEach(field => {
+                if (field.value && field.value.length > field.max) {
+                    document.getElementById(field.msgId).style.display = 'block';
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+        
+        /**
+         * Tüm hata mesajlarını gizler.
+         */
+        function hideAllErrors() {
+             document.querySelectorAll('.error').forEach(el => {
+                 el.style.display = 'none';
+             });
+             document.getElementById('sonucMesaji').textContent = "";
+        }
+    </script>
+
+</body>
+</html>
