@@ -3,83 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='icon' type='image/png' sizes='32x32' href='https://raw.githubusercontent.com/frtcn0186/ENVANTER/refs/heads/main/favicon-32x32.png'>
+     <link rel='icon' type='image/png' sizes='32x32' href='https://raw.githubusercontent.com/frtcn0186/ENVANTER/refs/heads/main/favicon-32x32.png'>
     <title>KDH REHBER ÇALIŞMASI</title>
     <style>
+        /* YENİ RENK PALETİ: Mavi & Turkuaz / Koyu Gri & Açık Gri */
+        :root {
+            --primary-color: #007bff;      /* Ana Mavi: Etkileşimler için */
+            --secondary-color: #6c757d;    /* İkincil Gri: Alt başlıklar, borderlar */
+            --background-light: #f8f9fa;   /* Açık Arka Plan */
+            --form-background: #ffffff;    /* Form Arka Planı */
+            --text-dark: #343a40;          /* Koyu Metin */
+            --success-color: #17a2b8;      /* Canlı Turkuaz (Submit Butonu) */
+            --error-color: #dc3545;        /* Kırmızı Hata */
+        }
+
         /* Genel Stil ve Reset */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 10px; /* Kenar boşluğunu biraz azalt */
-            background-color: #e9ecef; /* Daha açık gri bir arka plan */
+            padding: 10px;
+            background-color: var(--background-light); 
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh; /* Tam ekran yüksekliği */
+            min-height: 100vh;
             margin: 0;
+            line-height: 1.5;
         }
 
         /* Başlık Alanı */
         .header-container {
             text-align: center;
-            padding: 20px 0 10px;
+            padding: 20px 0 15px;
         }
-        h1 { color: #0056b3; font-size: 28px; margin: 0 0 5px; } /* Mavi tonu */
-        h3 { color: #495057; font-size: 18px; margin: 0 0 3px; }
-        h6 { color: #6c757d; font-size: 14px; margin: 0; font-weight: normal; }
+        h1 { 
+            color: var(--primary-color); 
+            font-size: 30px; 
+            margin: 0 0 5px; 
+            font-weight: 700;
+        } 
+        h3 { 
+            color: var(--text-dark); 
+            font-size: 18px; 
+            margin: 0 0 3px;
+        }
+        h6 { 
+            color: var(--secondary-color); 
+            font-size: 13px; 
+            margin: 0; 
+            font-weight: 500;
+        }
 
         /* Form Kapsayıcısı */
         #myForm {
-            background-color: #ffffff;
+            background-color: var(--form-background);
             padding: 30px;
-            border-radius: 12px; /* Daha yuvarlak köşeler */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Daha belirgin gölge */
-            max-width: 450px;
-            width: 100%; /* Tam genişlik */
-            margin: 20px 10px; /* Üstten ve yandan boşluk */
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Daha zarif gölge */
+            max-width: 480px; /* Biraz daha geniş form */
+            width: 100%;
+            margin: 20px 10px;
+            border-top: 5px solid var(--primary-color); /* Kurumsal çizgi */
         }
         
         /* Form Grupları */
-        .form-group { margin-bottom: 20px; }
+        .form-group { margin-bottom: 22px; }
 
         label { 
             display: block; 
             font-weight: 600; 
-            margin-bottom: 8px; /* Boşluğu artır */
-            color: #343a40; /* Daha koyu label rengi */
+            margin-bottom: 8px; 
+            color: var(--text-dark); 
             font-size: 14px;
         }
 
         input[type="text"], input[type="number"], select, textarea { 
             width: 100%; 
-            padding: 12px; 
+            padding: 12px 15px; /* Yatay boşluğu artır */
             border: 1px solid #ced4da; 
             box-sizing: border-box; 
-            border-radius: 8px; /* Daha yuvarlak inputlar */
+            border-radius: 6px; 
             transition: border-color 0.3s, box-shadow 0.3s;
             font-size: 15px;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: #007bff; 
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Focus efekti */
+            border-color: var(--success-color); /* Turkuaz odak rengi */
+            box-shadow: 0 0 0 4px rgba(23, 162, 184, 0.25); /* Turkuaz focus halkası */
             outline: none;
         }
 
-        /* Buton Stili */
+        /* Buton Stili (Canlı Turkuaz) */
         .submit-button { 
-            padding: 15px 25px; /* Daha büyük buton */
-            background-color: #198754; /* Yeşil tonu */
+            padding: 15px 25px;
+            background-color: var(--success-color); 
             color: white; 
             border: none; 
             cursor: pointer; 
-            border-radius: 8px; 
+            border-radius: 6px; 
             width: 100%; 
             font-size: 17px;
             font-weight: bold;
+            letter-spacing: 0.5px;
             transition: background-color 0.3s, transform 0.1s;
         }
         .submit-button:hover {
-            background-color: #157347;
-            transform: translateY(-1px); /* Hafif yukarı hareket */
+            background-color: #138496; /* Turkuazın koyu tonu */
+            transform: translateY(-2px); /* Hafif yukarı hareket */
+            box-shadow: 0 4px 10px rgba(23, 162, 184, 0.4);
         }
         .submit-button:active {
             transform: translateY(0);
@@ -89,40 +118,40 @@
         #sonucMesaji {
             text-align: center;
             margin-top: 25px;
-            font-weight: bold;
-            color: #0056b3;
+            font-weight: 600;
+            color: var(--primary-color);
             padding: 10px;
-            border-radius: 5px;
         }
         .error {
-            color: #dc3545; 
+            color: var(--error-color); 
             font-size: 12px;
             margin-top: 5px;
             display: none;
-            padding-left: 5px;
+            padding-left: 3px;
         }
 
         /* Footer Stili (Copyright) */
         .footer {
-            margin-top: auto; /* Sayfanın altına yapıştırır */
-            padding: 15px;
+            margin-top: auto; 
+            padding: 20px;
             text-align: center;
-            color: #6c757d;
+            color: var(--secondary-color);
             font-size: 12px;
             width: 100%;
+            border-top: 1px solid #e9ecef;
         }
 
         /* Duyarlılık (Responsive) Ayarları */
-        @media (max-width: 500px) {
+        @media (max-width: 550px) {
             #myForm {
-                padding: 20px; /* Küçük ekranlarda iç boşluğu azalt */
-                margin: 10px;
+                padding: 20px; 
+                margin: 15px 10px;
             }
-            h1 { font-size: 24px; }
-            h3 { font-size: 16px; }
+            h1 { font-size: 26px; }
+            h3 { font-size: 17px; }
             .submit-button {
-                padding: 12px 20px;
-                font-size: 15px;
+                padding: 14px 20px;
+                font-size: 16px;
             }
         }
     </style>
@@ -130,8 +159,8 @@
 <body>
 
     <div class="header-container">
-        <h1>📞 KDH-REHBER</h1>
-        <h3>DİNAMİK REHBER ÇALIŞMASI</h3>
+        <h1>☎️ KDH-REHBER YÖNETİM SİSTEMİ</h1>
+        <h3>DİNAMİK REHBER GÜNCELLEME FORMU</h3>
         <h6>BİLGİ SİSTEMLERİ DONANIM EKİBİ</h6>
     </div>
 
@@ -155,7 +184,7 @@
                 type="text" 
                 id="dahili_no" 
                 name="dahili_no" 
-                placeholder="ÖR: 1125 (4 Haneli)" 
+                placeholder="Örn: 1125 (Tam 4 Haneli)" 
                 maxlength="4"
                 inputmode="numeric"
                 pattern="[0-9]{4}" 
@@ -167,7 +196,7 @@
         <div class="form-group">
             <label for="kat_no">KAT NUMARANIZ *</label>
             <select id="kat_no" name="kat_no" required>
-                <option value="">Bir seçenek seçin...</option>
+                <option value="">Bir kat seçin...</option>
                 <option value="1.KAT">1.KAT</option>
                 <option value="2.KAT">2.KAT</option>
                 <option value="3.KAT">3.KAT</option>
@@ -180,27 +209,27 @@
         
         <div class="form-group">
             <label for="oda_no">ODA NUMARANIZ *</label>
-            <input type="text" id="oda_no" name="oda_no" placeholder="RENKLİ KOD İÇİN GEREKLİ" required>
+            <input type="text" id="oda_no" name="oda_no" placeholder="GÖRSEL REHBER İÇİN GEREKLİ ODA KODU" required>
         </div>
         
         <div class="form-group">
             <label for="kime_ait">DAHİLİ NUMARA KİME AİT *</label>
-            <input type="text" id="kime_ait" name="kime_ait" placeholder="ODA DA GÖREVLİ KİŞİ" required>
+            <input type="text" id="kime_ait" name="kime_ait" placeholder="ODA/MASA/BİRİM GÖREVLİSİ ADI" required>
         </div>
         
         <div class="form-group">
-            <label for="aciklama">AÇIKLAMA-GÜNCELLEME-DÜZELTME</label>
-            <textarea id="aciklama" name="aciklama" rows="4" placeholder="DAHA ÖNCEKİ VERİLERİ GÜNCELLEME TALEBİ (Max 170 Karakter)" maxlength="170"></textarea>
+            <label for="aciklama">AÇIKLAMA (GÜNCELLEME/DÜZELTME)</label>
+            <textarea id="aciklama" name="aciklama" rows="4" placeholder="Ek bilgi, güncelleme veya düzeltme talebini buraya yazınız (Max 170 Karakter)." maxlength="170"></textarea>
             <span class="error" id="aciklama_error">Açıklama en fazla 170 karakter olmalıdır.</span>
         </div>
         
-        <button type="submit" class="submit-button">KAYDET / GÜNCELLE</button>
+        <button type="submit" class="submit-button">BİLGİLERİ GÖNDER & KAYDET</button>
         
         <p id="sonucMesaji"></p>
     </form>
     
     <footer class="footer">
-        © 2025 KDH Rehber Çalışması. Tüm Hakları Saklıdır. | BİLGİ SİSTEMLERİ DONANIM BİRİMİ
+        © 2025 KDH Rehber Çalışması. Tüm Hakları Saklıdır. | **BİLGİ SİSTEMLERİ DONANIM BİRİMİ**
     </footer>
 
     <script>
@@ -218,7 +247,7 @@
 
             // --- 1. ÖN YÜZ (FRONTEND) DOĞRULAMA KONTROLLERİ ---
             if (!clientSideValidation(formData)) {
-                 sonucMesaji.textContent = "❌ Lütfen tüm alanları doğru formatta doldurunuz.";
+                 sonucMesaji.textContent = "❌ Lütfen tüm gerekli alanları doğru formatta doldurunuz.";
                  return;
             }
             
@@ -231,7 +260,6 @@
 
 
             // --- 2. GÖNDERİM İŞLEMİ (APPS SCRIPT KONTROLÜ İLE) ---
-            // Apps Script: 1. Küfür Kontrolü (Gemini) 2. Dahili No Tekrar Kontrolü 3. Sheets'e Kayıt
             sonucMesaji.textContent = "Verileriniz yapay zeka ile kontrol ediliyor ve kaydediliyor, lütfen bekleyin...";
 
             fetch(form.action, {
@@ -241,12 +269,11 @@
             })
             .then(() => {
                 // Apps Script'ten kesin yanıt alamadığımız için genel bir mesaj gösteriyoruz.
-                // Eğer küfür veya tekrar eden numara varsa, kayıt zaten arka uçta engellenmiştir.
-                sonucMesaji.textContent = "✅ Kayıt talebi iletildi. Kontrol ve kayıt işlemi tamamlandı!";
+                sonucMesaji.textContent = "✅ Kayıt talebi başarıyla iletildi. Kontrol ve kayıt işlemi tamamlandı!";
                 form.reset(); 
             })
             .catch(error => {
-                sonucMesaji.textContent = "❌ Gönderim sırasında bir hata oluştu. (İnternet/Bağlantı Hatası)";
+                sonucMesaji.textContent = "❌ Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyiniz.";
                 console.error('Hata:', error);
             });
         });
@@ -274,7 +301,6 @@
             ];
 
             fields.forEach(field => {
-                // Sadece alan doluysa uzunluk kontrolü yap
                 if (field.value && field.value.length > field.max) {
                     document.getElementById(field.msgId).style.display = 'block';
                     isValid = false;
