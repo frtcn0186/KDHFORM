@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='icon' type='image/png' sizes='32x32' href='https://raw.githubusercontent.com/frtcn0186/ENVANTER/refs/heads/main/favicon-32x32.png'>
     <title>KDH REHBER ÇALIŞMASI</title>
     <style>
-        /* Modern ve Sade Stil */
+        /* Genel Stil ve Reset */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 20px; 
-            background-color: #f0f2f5; 
+            padding: 10px; /* Kenar boşluğunu biraz azalt */
+            background-color: #e9ecef; /* Daha açık gri bir arka plan */
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh; /* Tam ekran yüksekliği */
+            margin: 0;
         }
+
+        /* Başlık Alanı */
+        .header-container {
+            text-align: center;
+            padding: 20px 0 10px;
+        }
+        h1 { color: #0056b3; font-size: 28px; margin: 0 0 5px; } /* Mavi tonu */
+        h3 { color: #495057; font-size: 18px; margin: 0 0 3px; }
+        h6 { color: #6c757d; font-size: 14px; margin: 0; font-weight: normal; }
 
         /* Form Kapsayıcısı */
         #myForm {
             background-color: #ffffff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            border-radius: 12px; /* Daha yuvarlak köşeler */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Daha belirgin gölge */
             max-width: 450px;
-            width: 90%;
-            margin-top: 20px;
+            width: 100%; /* Tam genişlik */
+            margin: 20px 10px; /* Üstten ve yandan boşluk */
         }
-
-        /* Başlıklar */
-        h1, h3 { text-align: center; color: #333; margin: 0; padding-bottom: 5px; }
-        h1 { color: #007bff; font-size: 24px; }
-        h3 { color: #6c757d; font-size: 16px; margin-bottom: 20px; }
-
-        .form-group { margin-bottom: 18px; }
+        
+        /* Form Grupları */
+        .form-group { margin-bottom: 20px; }
 
         label { 
             display: block; 
             font-weight: 600; 
-            margin-bottom: 6px; 
-            color: #495057; 
+            margin-bottom: 8px; /* Boşluğu artır */
+            color: #343a40; /* Daha koyu label rengi */
             font-size: 14px;
         }
 
@@ -44,52 +54,86 @@
             padding: 12px; 
             border: 1px solid #ced4da; 
             box-sizing: border-box; 
-            border-radius: 6px; 
-            margin-top: 5px;
-            transition: border-color 0.3s;
+            border-radius: 8px; /* Daha yuvarlak inputlar */
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 15px;
         }
         input:focus, select:focus, textarea:focus {
             border-color: #007bff; 
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Focus efekti */
             outline: none;
         }
 
+        /* Buton Stili */
         .submit-button { 
-            padding: 14px 20px; 
-            background-color: #28a745; 
+            padding: 15px 25px; /* Daha büyük buton */
+            background-color: #198754; /* Yeşil tonu */
             color: white; 
             border: none; 
             cursor: pointer; 
-            border-radius: 6px; 
+            border-radius: 8px; 
             width: 100%; 
-            font-size: 16px;
+            font-size: 17px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.1s;
         }
         .submit-button:hover {
-            background-color: #218838;
+            background-color: #157347;
+            transform: translateY(-1px); /* Hafif yukarı hareket */
+        }
+        .submit-button:active {
+            transform: translateY(0);
         }
 
+        /* Mesaj ve Hata Stilleri */
         #sonucMesaji {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
             font-weight: bold;
-            color: #007bff;
+            color: #0056b3;
+            padding: 10px;
+            border-radius: 5px;
         }
-        
-        /* Hata mesajları için stil */
         .error {
-            color: #dc3545; /* Kırmızı hata rengi */
+            color: #dc3545; 
             font-size: 12px;
             margin-top: 5px;
             display: none;
+            padding-left: 5px;
+        }
+
+        /* Footer Stili (Copyright) */
+        .footer {
+            margin-top: auto; /* Sayfanın altına yapıştırır */
+            padding: 15px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+            width: 100%;
+        }
+
+        /* Duyarlılık (Responsive) Ayarları */
+        @media (max-width: 500px) {
+            #myForm {
+                padding: 20px; /* Küçük ekranlarda iç boşluğu azalt */
+                margin: 10px;
+            }
+            h1 { font-size: 24px; }
+            h3 { font-size: 16px; }
+            .submit-button {
+                padding: 12px 20px;
+                font-size: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1 style="text-align: center; margin-bottom: 3px; color: #333;">KDH-REHBER</h1>
-    <h3 style="text-align: center; margin-bottom: 3px; color: #666;">DİNAMİK REHBER ÇALIŞMASI</h3>
-    <h6 style="text-align: center; color: #666; margin-top: 3px;">BİLGİ SİSTEMLERİ DONANIM EKİBİ</h3>
+    <div class="header-container">
+        <h1>📞 KDH-REHBER</h1>
+        <h3>DİNAMİK REHBER ÇALIŞMASI</h3>
+        <h6>BİLGİ SİSTEMLERİ DONANIM EKİBİ</h6>
+    </div>
 
     <form id="myForm" action="https://script.google.com/macros/s/AKfycbyj-o7IOIvX_4vhqzM37jhHIswmW3p9emEW7EjBDJ1eEJqoCIH7UgH0Qz7VaJIQI2m26A/exec" method="POST">
         
@@ -111,7 +155,7 @@
                 type="text" 
                 id="dahili_no" 
                 name="dahili_no" 
-                placeholder="ÖR: 1125" 
+                placeholder="ÖR: 1125 (4 Haneli)" 
                 maxlength="4"
                 inputmode="numeric"
                 pattern="[0-9]{4}" 
@@ -146,14 +190,18 @@
         
         <div class="form-group">
             <label for="aciklama">AÇIKLAMA-GÜNCELLEME-DÜZELTME</label>
-            <textarea id="aciklama" name="aciklama" rows="4" placeholder="DAHA ÖNCEKİ VERİLERİ GÜNCELLEME TALEBİ" maxlength="170"></textarea>
+            <textarea id="aciklama" name="aciklama" rows="4" placeholder="DAHA ÖNCEKİ VERİLERİ GÜNCELLEME TALEBİ (Max 170 Karakter)" maxlength="170"></textarea>
             <span class="error" id="aciklama_error">Açıklama en fazla 170 karakter olmalıdır.</span>
         </div>
         
-        <button type="submit" class="submit-button">Submit (Kaydet)</button>
+        <button type="submit" class="submit-button">KAYDET / GÜNCELLE</button>
         
-        <p id="sonucMesaji" style="color: blue; text-align: center; margin-top: 20px;"></p>
+        <p id="sonucMesaji"></p>
     </form>
+    
+    <footer class="footer">
+        © 2025 KDH Rehber Çalışması. Tüm Hakları Saklıdır. | BİLGİ SİSTEMLERİ DONANIM BİRİMİ
+    </footer>
 
     <script>
         // Arka uçta (Apps Script) tüm kontroller yapılacağı için frontend kodunu basitleştiriyoruz.
@@ -194,7 +242,7 @@
             .then(() => {
                 // Apps Script'ten kesin yanıt alamadığımız için genel bir mesaj gösteriyoruz.
                 // Eğer küfür veya tekrar eden numara varsa, kayıt zaten arka uçta engellenmiştir.
-                sonucMesaji.textContent = "✅ Kayıt talebi iletildi. Yapay zeka kontrolü tamamlandı!";
+                sonucMesaji.textContent = "✅ Kayıt talebi iletildi. Kontrol ve kayıt işlemi tamamlandı!";
                 form.reset(); 
             })
             .catch(error => {
@@ -226,6 +274,7 @@
             ];
 
             fields.forEach(field => {
+                // Sadece alan doluysa uzunluk kontrolü yap
                 if (field.value && field.value.length > field.max) {
                     document.getElementById(field.msgId).style.display = 'block';
                     isValid = false;
